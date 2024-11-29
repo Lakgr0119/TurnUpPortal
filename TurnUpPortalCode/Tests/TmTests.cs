@@ -33,7 +33,7 @@ namespace TurnUpPortalCode.Tests
         public void updateTimeTest()
         {
             TmPage tmPageObject = new TmPage();
-            tmPageObject.editTimeRecord(driver);
+            tmPageObject.editTimeRecord(driver,"");
         }
         [Test]
         public void deleteTimeTest()

@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="SpecFlow\" />
-    <Folder Include="StepDefinition\" />
   </ItemGroup>
 	<ItemGroup>
 		<None Update="SpecFlow\tmfeature.feature">

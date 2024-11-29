@@ -9,6 +9,8 @@ namespace TurnUpPortalCode.Utilities
 {
     public class CommonDriver
     {
+        
         public static IWebDriver driver;
+       
     }
 }
