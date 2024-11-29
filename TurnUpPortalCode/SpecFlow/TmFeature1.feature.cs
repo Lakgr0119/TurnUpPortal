@@ -110,14 +110,15 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("edit existing time record with valid data")]
-        [NUnit.Framework.TestCaseAttribute("Industry connect", null)]
-        [NUnit.Framework.TestCaseAttribute("TA job ready", null)]
-        [NUnit.Framework.TestCaseAttribute("Edit Record", null)]
-        public void EditExistingTimeRecordWithValidData(string code, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Industry connect", "Laptop", null)]
+        [NUnit.Framework.TestCaseAttribute("TA job ready", "Mouse", null)]
+        [NUnit.Framework.TestCaseAttribute("Edit Record", "Keyboard", null)]
+        public void EditExistingTimeRecordWithValidData(string code, string description, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("code", code);
+            argumentsOfScenario.Add("Description", description);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("edit existing time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
@@ -136,10 +137,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I navigate to time and material  page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
- testRunner.When(string.Format("I update the \'{0}\' on an existing Time record", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I update the \'{0}\' and \'{1}\'on an existing Time record", code, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
- testRunner.Then(string.Format("The record should  be updated \'{0}\'", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The record should  be updated \'{0}\' and \'{1}\'", code, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

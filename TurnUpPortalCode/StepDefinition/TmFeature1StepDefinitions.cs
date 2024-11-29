@@ -46,21 +46,23 @@ namespace TurnUpPortalCode.StepDefinition
             Assert.That(newPrice == "12", "Actual price does not match with the expected");
 
         }
-        [When(@"I update the '([^']*)' on an existing Time record")]
-        public void WhenIUpdateTheOnAnExistingTimeRecord(string code)
+        [When(@"I update the '([^']*)' and '([^']*)'on an existing Time record")]
+        public void WhenIUpdateTheAndOnAnExistingTimeRecord(string code, string description)
         {
             TmPage tmPageObject = new TmPage();
-            tmPageObject.editTimeRecord(driver, code);
+            tmPageObject.editTimeRecord(driver, code, description);
         }
-         
-        [Then(@"The record should  be updated '([^']*)'")]
-        public void ThenTheRecordShouldBeUpdated(string code)
+
+        [Then(@"The record should  be updated '([^']*)' and '([^']*)'")]
+        public void ThenTheRecordShouldBeUpdatedAnd(string code, string description)
         {
             TmPage tmPageObject = new TmPage();
-         String editedCode=  tmPageObject.getEditedCode(driver);
-            Assert.That(editedCode == code, "Expected Edited code does not match with the actual");
-            
+            string editedCode = tmPageObject.getEditedCode(driver);
+            string editedDescription = tmPageObject.getEditedDescription(driver);
+            Assert.That(editedCode == code, "Expected Edited code and actual do not match");
+            Assert.That(editedDescription == description, "Expected Edited description and actual do not match");
         }
+
 
     }
 }

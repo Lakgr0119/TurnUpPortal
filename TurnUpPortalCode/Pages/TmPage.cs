@@ -56,7 +56,7 @@ namespace TurnUpPortalCode.Pages
             return newPrice.Text;
         }
 
-        public void editTimeRecord(IWebDriver driver, string code)
+        public void editTimeRecord(IWebDriver driver, string code, String Description)
         {
             Thread.Sleep(4000);
             //Select a record and click edit button
@@ -70,10 +70,12 @@ namespace TurnUpPortalCode.Pages
             Thread.Sleep(4000);
             IWebElement codeTextbox = driver.FindElement(By.Id("Code"));
             codeTextbox.Clear();
-            Thread.Sleep(2000);
             codeTextbox.SendKeys(code);
             Thread.Sleep(2000);
-
+            IWebElement descriptionTab = driver.FindElement(By.Id("Description"));
+            descriptionTab.Clear();
+            descriptionTab.SendKeys(Description);
+            Thread.Sleep(2000);
             //Click save
             IWebElement saveButton = driver.FindElement(By.Id("SaveButton"));
             saveButton.Click();
@@ -84,12 +86,17 @@ namespace TurnUpPortalCode.Pages
            
                       
         }
-       
+        
         public string getEditedCode(IWebDriver driver)
         {        
                       
             IWebElement editedCodeEntry = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             return editedCodeEntry.Text;
+        }
+        public string getEditedDescription(IWebDriver driver)
+        {
+            IWebElement descriptionEntry = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return descriptionEntry.Text;
         }
         public void deletTimeRecord(IWebDriver driver)
 
